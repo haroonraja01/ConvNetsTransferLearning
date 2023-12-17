@@ -21,6 +21,7 @@ class ResnetTransfer:
         self.batch_size = batch_size
         self.lr = 0.01
         self.momentum = 0.9
+        self.num_epochs = 5
 
     def transform_data(self):
         transform = {
@@ -43,8 +44,8 @@ class ResnetTransfer:
             dataloader[x] = torch.utils.data.DataLoader(dataset[x], batch_size=self.batch_size, shuffle=True)
         return dataloader
 
-    def train_model(self, dataloader, loss_function, model, optimizer, scheduler, num_epochs=5):
-        for epoch in range(num_epochs):
+    def train_model(self, dataloader, loss_function, model, optimizer, scheduler):
+        for epoch in range(self.num_epochs):
             print('Epoch number: {}'.format(epoch))
             for learning_mode in ['train', 'val']:
                 if learning_mode == 'train':
@@ -62,7 +63,7 @@ class ResnetTransfer:
                         loss.backward()
                         optimizer.step()
                     # outputs = model(images)
-                    _, preds = torch.max(outputs, 1)
+                    _, predictions = torch.max(outputs, 1)
                     print(learning_mode + ' loss:', loss.item())
                     # print(loss_function(outputs, labels), labels[0], preds)
 

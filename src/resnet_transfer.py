@@ -16,7 +16,7 @@ cudnn.benchmark = True
 
 
 class ResnetTransfer:
-    def __int__(self, data_dir='../data/hymenoptera_data/', batch_size=32):
+    def __init__(self, data_dir='../data/hymenoptera_data/', batch_size=32):
         self.data_dir = data_dir
         self.batch_size = batch_size
         self.lr = 0.01
@@ -73,5 +73,7 @@ class ResnetTransfer:
     def optimizer_config(self, model, algo='sgd'):
         if algo == 'sgd':
             return optim.SGD(model.parameters(), lr=self.lr, momentum=self.momentum)
+
+
 
 

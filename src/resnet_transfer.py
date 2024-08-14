@@ -16,7 +16,7 @@ cudnn.benchmark = True
 
 
 class ResnetTransfer:
-    def __init__(self, data_dir='../data/hymenoptera_data/', batch_size=32):
+    def __init__(self, data_dir='/Users/haroonraja/Google Drive/Colab Notebooks/ConvNetsTransferLearning/data', batch_size=32):
         self.data_dir = data_dir
         self.batch_size = batch_size
         self.lr = 0.01

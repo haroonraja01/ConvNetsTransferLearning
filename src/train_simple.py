@@ -21,7 +21,7 @@ ap.add_argument("-m", "--model", type=str, required=False, help="path to output 
 ap.add_argument("-p", "--plot", type=str, required=False, help="path to output loss/accuracy plot")
 args = vars(ap.parse_args())
 
-data_dir = '../data/hymenoptera_data/'
+data_dir = '/Users/haroonraja/Google Drive/Colab Notebooks/ConvNetsTransferLearning/data'
 batch_size = 32
 lr = 0.01
 momentum = 0.9
@@ -100,5 +100,5 @@ ax.set(xlabel='Epochs', ylabel='Average loss values',
        title='About as simple as it gets, folks')
 legend = ax.legend(loc='upper right', shadow=True, fontsize='x-large')
 
-fig.savefig("../output/test.pdf")
+fig.savefig("/Users/haroonraja/Google Drive/Colab Notebooks/ConvNetsTransferLearning/output/test.pdf")
 plt.close(fig)
